@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<div class="output">
+    {% include 'head.html' %}
+</div>
+
+<body>
+    <div class="output">
+        {% include 'alert.html' %}
+    </div>
+    <div class="jumbotron text-center">
+        <h1>Stock Trading!</h1>
+        <p>Login/Register below</p>
+    </div>
+    <div class="container">
+        <form action="/register" method="POST">
+            <div class="form-group row">
+                <div class="col-md-4 mx-auto">
+					<input type="text" name="firstname" placeholder="First Name" class="form-control vgap">
+					<input type="text" name="lastname" placeholder="Last Name" class="form-control vgap">
+                    <input type="username" name="username" placeholder="Username" class="form-control vgap">
+                    <input type="password" name="password" placeholder="Password" class="form-control vgap">
+                    <input type="password" name="password2" placeholder="Password again" class="form-control vgap">
+                </div>
+            </div>
+            <div class="form-actions">
+                <div style="text-align:center;">
+                    <button type="submit" class="btn btn-primary vgap">Register</button>
+                </div>
+                <div style="text-align:center;">
+                    <a href="/login" class="btn btn-link" role="button">Login</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<div class="output">
+    {% include 'head.html' %}
+</div>
+
+<body>
+    <div class="output">
+        {% include 'navbar.html' %}
+    </div>
+
+    <div class="output">
+        {% include 'alert.html' %}
+    </div>
+
+    <div class="jumbotron text-center">
+        <h2>Owned Stocks</h2>
+		<p style="text-align:center">Your balance is {{balance}}</p>
+    </div>
+
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Shares</th>
+                </tr>
+            </thead>
+            <tbody>
+				{% for row in rows %}
+				<tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

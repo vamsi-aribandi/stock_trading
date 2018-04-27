@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<div class="output">
+    {% include 'head.html' %}
+</div>
+
+<body>
+    <div class="output">
+        {% include 'navbar.html' %}
+    </div>
+
+    <div class="output">
+        {% include 'alert.html' %}
+    </div>
+
+    <div class="jumbotron text-center">
+        <h2>Available Offers</h2>
+        <p>Accepting a "Buy" offer means you will be selling, and vice-versa</p>
+    </div>
+
+    <div class="container">
+        <form action="/offers" method="POST">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>Symbol</th>
+						<th>Type</th>
+                        <th>Shares</th>
+                        <th>Value</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+					{% for row in rows %}
+					<tr>
+						<td>
+                            <div class="radio">
+                                <input type="radio" name="id" value={{row[0]}}>
+                            </div>
+                        </td>
+						<td>{{row[2]}}</td>
+					{% if row[5] %}
+						<td>Sell</td>
+					{% else %}
+						<td>Buy</td>
+					{% endif %}
+						<td>{{row[3]}}</td>
+						<td>{{row[4]}}</td>
+						<td>{{row[3]*row[4]}}</td>
+					</tr>
+					{% endfor %}
+                </tbody>
+            </table>
+            <div style="text-align:center;">
+                <button type="submit" class="btn btn-primary">Accept</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

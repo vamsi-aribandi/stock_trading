@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<div class="output">
+    {% include 'head.html' %}
+</div>
+
+<body>
+    <div class="output">
+        {% include 'navbar.html' %}
+    </div>
+
+    <div class="output">
+        {% include 'alert.html' %}
+    </div>
+
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Type</th>
+                    <th>Shares</th>
+                    <th>Price per share</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+				{% for row in rows %}
+				<tr>
+                    <td>{{row[3]}}</td>
+					{% if uid == row[1] %}
+						<td>Buy</td>
+					{% else %}
+						<td>Sell</td>
+					{% endif %}
+                    <td>{{row[4]}}</td>
+                    <td>{{row[5]}}</td>
+                    <td>{{row[4]*row[5]}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

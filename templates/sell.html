@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<div class="output">
+    {% include 'head.html' %}
+</div>
+
+<body>
+    <div class="output">
+        {% include 'navbar.html' %}
+    </div>
+	
+	<div class="output">
+		{% include 'alert.html' %}
+	</div>
+
+    <div class="container p-5">
+        <p style="text-align:center">Sell at Market Price</p>
+        <form action="/sell" method="POST">
+            <div class="form-group">
+                <div class="col-md-4 mx-auto">
+                    <select class="form-control vgap" name="symbol">
+                        {% for stock in stocks %}
+                        <option>{{stock[0]}}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="number" name="shares" placeholder="No. of shares" class="form-control vgap" min=0>
+                </div>
+            </div>
+            <div class="form-actions">
+                <div style="text-align:center;">
+                    <button type="submit" name='type' value='market' class="btn btn-primary">Sell</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="container p-5">
+            <p style="text-align:center">Post an offer to sell</p>
+            <form action="/sell" method="POST">
+                <div class="form-group">
+                    <div class="col-md-4 mx-auto">
+                        <select class="form-control vgap" name="symbol">
+                            {% for stock in stocks %}
+                            <option>{{stock[0]}}</option>
+                            {% endfor %}
+                        </select>
+                        <input type="number" name="shares" placeholder="No. of shares" class="form-control vgap" min=0>
+                        <input type="number" step=".01" name="price" placeholder="Price per share" class="form-control vgap">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <div style="text-align:center;">
+                        <button type="submit" name='type' value='user' class="btn btn-primary">Post</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+</body>
+
+</html>

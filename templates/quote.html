@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<div class="output">
+    {% include 'head.html' %}
+</div>
+
+<body>
+    <div class="output">
+        {% include 'navbar.html' %}
+    </div>
+	
+	<div class="output">
+        {% include 'alert.html' %}
+    </div>
+
+    <div class="container p-5">
+        <form action="/quote" method="POST">
+            <div class="form-group">
+                <div class="col-md-4 mx-auto">
+                    <input type="text" name="symbol" placeholder="Symbol" class="form-control vgap">
+                </div>
+            </div>
+            <div class="form-actions">
+                <div style="text-align:center;">
+                    <button type="submit" class="btn btn-primary">Quote</button>
+                </div>
+            </div>
+        </form>
+		
+		<p style="text-align:center">{{quoted_price}}</p>
+		
+    </div>
+	
+</body>
+
+</html>

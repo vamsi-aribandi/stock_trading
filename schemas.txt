@@ -1,0 +1,59 @@
+USERS
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| id        | int(11)      | NO   | PRI | NULL    | auto_increment |
+| firstname | varchar(20)  | YES  |     | NULL    |                |
+| lastname  | varchar(20)  | YES  |     | NULL    |                |
+| username  | varchar(20)  | YES  |     | NULL    |                |
+| password  | varchar(256) | YES  |     | NULL    |                |
+| balance   | float        | YES  |     | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+
+
+STOCKS
++----------+-------------+------+-----+-------------------+-----------------------------+
+| Field    | Type        | Null | Key | Default           | Extra                       |
++----------+-------------+------+-----+-------------------+-----------------------------+
+| id       | int(11)     | NO   | PRI | NULL              | auto_increment              |
+| symbol   | varchar(10) | YES  |     | NULL              |                             |
+| price    | float       | YES  |     | NULL              |                             |
+| datetime | timestamp   | NO   |     | CURRENT_TIMESTAMP | on update CURRENT_TIMESTAMP |
++----------+-------------+------+-----+-------------------+-----------------------------+
+
+
+OWERSHIP
++---------+---------+------+-----+---------+-------+
+| Field   | Type    | Null | Key | Default | Extra |
++---------+---------+------+-----+---------+-------+
+| uid     | int(11) | YES  |     | NULL    |       |
+| stockid | int(11) | YES  |     | NULL    |       |
+| shares  | int(11) | YES  |     | NULL    |       |
++---------+---------+------+-----+---------+-------+
+
+
+TRANSACTIONS
++-------------+-----------+------+-----+-------------------+-----------------------------+
+| Field       | Type      | Null | Key | Default           | Extra                       |
++-------------+-----------+------+-----+-------------------+-----------------------------+
+| id          | int(11)   | NO   | PRI | NULL              | auto_increment              |
+| datetime    | timestamp | NO   |     | CURRENT_TIMESTAMP | on update CURRENT_TIMESTAMP |
+| buyer       | int(11)   | YES  |     | NULL              |                             |
+| seller      | int(11)   | YES  |     | NULL              |                             |
+| stockid     | int(11)   | YES  |     | NULL              |                             |
+| shares      | int(11)   | YES  |     | NULL              |                             |
+| prcpershare | float     | YES  |     | NULL              |                             |
++-------------+-----------+------+-----+-------------------+-----------------------------+
+
+
+OFFERS
++-------------+------------+------+-----+---------+----------------+
+| Field       | Type       | Null | Key | Default | Extra          |
++-------------+------------+------+-----+---------+----------------+
+| ID          | int(11)    | NO   | PRI | NULL    | auto_increment |
+| UID         | int(11)    | YES  |     | NULL    |                |
+| STOCKID     | int(11)    | YES  |     | NULL    |                |
+| SHARES      | int(11)    | YES  |     | NULL    |                |
+| PRCPERSHARE | float      | YES  |     | NULL    |                |
+| TYPE        | tinyint(1) | YES  |     | NULL    |                |
++-------------+------------+------+-----+---------+----------------+
