@@ -1,5 +1,6 @@
 # Stock Trading
 A website which simulates a simple stock market
+Done by Vamsi Aribandi, Skanda Vaidyanath
 
 Features:
 * Users can Buy/Sell at market price (stock prices are realtime)
